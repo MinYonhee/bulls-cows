@@ -1,4 +1,3 @@
-// Generate a random 4-digit code
 const generateCode = () => {
     let digits = new Set();
     while (digits.size < 4) {
@@ -10,7 +9,6 @@ const generateCode = () => {
 const secretCode = generateCode();
 let attempts = [];
 
-// Check Bulls and Cows
 const checkBullsAndCows = (guess, code) => {
     let bulls = 0, cows = 0;
     for (let i = 0; i < 4; i++) {
@@ -23,7 +21,6 @@ const checkBullsAndCows = (guess, code) => {
     return { bulls, cows };
 };
 
-// Display Attempts
 const updateAttempts = () => {
     const attemptsList = document.getElementById('attemptsList');
     attemptsList.innerHTML = attempts
@@ -35,12 +32,11 @@ const updateAttempts = () => {
         .join('');
 };
 
-// Handle Guess Submission
 const submitGuess = () => {
     const guessInput = document.getElementById('guess');
     const guess = guessInput.value;
     if (guess.length !== 4 || isNaN(guess)) {
-        alert('Please enter a valid 4-digit number.');
+        alert('Por favor digite um conjunto de 4 números que seja válido: ');
         return;
     }
 
@@ -50,7 +46,7 @@ const submitGuess = () => {
     guessInput.value = '';
 };
 
-// Reveal Secret Code
+
 const revealCode = () => {
-    alert(`The secret code is: ${secretCode}`);
+    alert(`O código secreto é: ${secretCode}`);
 };
